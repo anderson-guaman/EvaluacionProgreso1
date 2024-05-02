@@ -6,14 +6,18 @@ namespace EvaluacionProgreso1.Models
     public class AGuaman
     {
         [Key]
-        private int Id;
-
-        private float? Calificacion;
+        private int Id { get; set; }
+        
+        private float? Calificacion {  get; set; }
         [Required]
-        private string Nombre;
+        private string Nombre { get; set; }
+        
+        private bool Ecuatoriano { get; set; }
 
-        private bool Ecuatoriano;
+        [Required]
         private DateTime FechaNacimiento;
+
+
         [Required, ForeignKey("CarreraId")]
         private int? CarreraId;
         private Carrera? Carrera;
