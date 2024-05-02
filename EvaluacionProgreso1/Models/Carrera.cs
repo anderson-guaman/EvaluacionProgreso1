@@ -6,7 +6,7 @@ namespace EvaluacionProgreso1.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required,StringLength(30)]
         public string Nombre_Carrera { get; set; }
         [Required]
         public string Campus {  get; set; }

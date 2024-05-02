@@ -19,7 +19,7 @@ namespace EvaluacionProgreso1.Models
 
 
         [Required, ForeignKey("CarreraId")]
-        private int? CarreraId;
-        private Carrera? Carrera;
+        private int? CarreraId { get; set; }
+        private Carrera? Carrera {  get; set; }
     }
 }
