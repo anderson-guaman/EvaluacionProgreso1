@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EvaluacionProgreso.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20240502132947_PrimeraMigracion")]
+    [Migration("20240502133741_PrimeraMigracion")]
     partial class PrimeraMigracion
     {
         /// <inheritdoc />
@@ -36,6 +36,9 @@ namespace EvaluacionProgreso.Migrations
                     b.Property<float>("Calificacion")
                         .HasColumnType("real");
 
+                    b.Property<int?>("CarreraId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Ecuatoriano")
                         .HasColumnType("bit");
 
@@ -47,6 +50,8 @@ namespace EvaluacionProgreso.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CarreraId");
 
                     b.ToTable("Guaman");
                 });
@@ -74,6 +79,15 @@ namespace EvaluacionProgreso.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Carrera");
+                });
+
+            modelBuilder.Entity("EvaluacionProgreso.Models.Guaman", b =>
+                {
+                    b.HasOne("EvaluacionProgreso1.Models.Carrera", "Carrera")
+                        .WithMany()
+                        .HasForeignKey("CarreraId");
+
+                    b.Navigation("Carrera");
                 });
 #pragma warning restore 612, 618
         }

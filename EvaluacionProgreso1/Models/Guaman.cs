@@ -16,8 +16,8 @@ namespace EvaluacionProgreso.Models
         public bool Ecuatoriano { get; set; }
         [Required]
         public DateTime FechaNacimiento { get; set; }
-        [Required,ForeignKey("CarreraId")]
-        private int CarreraId { get; set; }
-        private Carrera Carrera { get; set; }
+        [ForeignKey("CarreraId")]
+        public int? CarreraId { get; set; }
+        public Carrera Carrera { get; set; }
     }
 }
